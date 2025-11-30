@@ -7,7 +7,6 @@ class TreeNode:
         self.right = None
 
 def insert_node(root, value):
-    """Вставка узла в двоичное дерево поиска"""
     if root is None:
         return TreeNode(value)
     
@@ -19,7 +18,6 @@ def insert_node(root, value):
     return root
 
 def build_tree():
-    """Построение дерева"""
     print("Введите числа для построения дерева (0 для завершения):")
     root = None
     
@@ -43,9 +41,7 @@ def build_tree():
     
     return root
 
-# Задача 1: Вершины с одним ребенком
 def find_single_child_nodes(root, result):
-    """Поиск вершин с одним ребенком"""
     if root is None:
         return
     
@@ -61,9 +57,7 @@ def find_single_child_nodes(root, result):
     find_single_child_nodes(root.left, result)
     find_single_child_nodes(root.right, result)
 
-# Задача 2: Проверка сбалансированности
 def get_height_and_balance(root):
-    """Возвращает высоту и флаг сбалансированности"""
     if root is None:
         return 0, True
     
@@ -77,21 +71,18 @@ def get_height_and_balance(root):
     return height, balanced
 
 def main():
-    # Способ 1: Интерактивный ввод
     root = build_tree()
     
     if root is None:
         print("Дерево пустое")
         return
     
-    # Задача 1
     print("\n=== Задача 1: Вершины с одним ребенком ===")
     result1 = []
     find_single_child_nodes(root, result1)
     for value in sorted(result1):
         print(value)
     
-    # Задача 2
     print("\n=== Задача 2: Сбалансированность дерева ===")
     _, balanced = get_height_and_balance(root)
     print("YES" if balanced else "NO")
